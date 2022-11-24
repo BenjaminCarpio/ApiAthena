@@ -4,9 +4,9 @@ const config = {
             server: [
                 {
                     origin: "localhost:3000", //servidor que deseas que consuma o (*) en caso que sea acceso libre
-                    credentials: false,
+                    credentials: true,
                     origin: "https://athenapi.herokuapp.com/api/reviews",
-                    credentials: false
+                    credentials: true
                 }
             ]
         }
