@@ -1,9 +1,17 @@
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors')
 require("dotenv").config();
 const reviewRoute = require("./routes/review");
 
+const config = require('./config');
+
+var app = express();
+
+const whitelist = ['https://athenapi.herokuapp.com/api/reviews']
+
+app.use(cors({origin:whitelist}));
 // settings
 //const app = express();
 const port = process.env.PORT || 9000;
@@ -33,10 +41,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 
-const config = require('./config');
-
-var app = express();
-
-const whitelist = ['https://athenapi.herokuapp.com/api/reviews']
-
-app.use(cors({origin:whitelist}));
+app.all('/', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next()
+});
+app.get('/', function(req, res, next) {
+  // Handle the get for this route
+});
+app.post('/', function(req, res, next) {
+  // Handle the post for this route
+})
