@@ -9,7 +9,7 @@ const config = require('./config');
 
 var app = express();
 
-const whitelist = ['https://athenapi.herokuapp.com/api/reviews']
+const whitelist = ['https://athenapi.herokuapp.com/api/']
 
 app.use(cors({origin:whitelist}));
 // settings
