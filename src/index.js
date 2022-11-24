@@ -37,4 +37,6 @@ const config = require('./config');
 
 var app = express();
 
-app.use(cors());
+const whitelist = ['https://athenapi.herokuapp.com/api/reviews']
+
+app.use(cors({origin:whitelist}));
