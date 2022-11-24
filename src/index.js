@@ -4,7 +4,7 @@ require("dotenv").config();
 const reviewRoute = require("./routes/review");
 
 // settings
-const app = express();
+//const app = express();
 const port = process.env.PORT || 9000;
 
 // middlewares
@@ -24,3 +24,18 @@ mongoose
 
 // server listening
 app.listen(port, () => console.log("Server listening to", port));
+
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+const cors = require('cors');
+
+const config = require('./config');
+
+var app = express();
+
+app.use(cors(
+  config.application.cors.server
+));
